@@ -1,14 +1,14 @@
 [gd_scene load_steps=20 format=3 uid="uid://l6kgbrg6478"]
 
 [ext_resource type="Script" path="res://Game/player.gd" id="1_3i14y"]
-[ext_resource type="Texture2D" uid="uid://k7nxdidm8gam" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Idle_Sword_Defence0_0.png" id="2_f81bg"]
-[ext_resource type="Texture2D" uid="uid://dsscmscqb4pqt" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Idle_Sword_Defence0_1.png" id="3_bxj48"]
-[ext_resource type="Texture2D" uid="uid://b4y31neofalux" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Idle_Sword_Defence0_2.png" id="4_gef8o"]
-[ext_resource type="Texture2D" uid="uid://dvqrjegy7w6ao" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Idle_Sword_Defence0_3.png" id="5_4svjv"]
-[ext_resource type="Texture2D" uid="uid://ncp4qhpuwtw8" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Walk_Sword_Defence0_0.png" id="6_cxumo"]
-[ext_resource type="Texture2D" uid="uid://julpo32ggbsq" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Walk_Sword_Defence0_1.png" id="7_65cm0"]
-[ext_resource type="Texture2D" uid="uid://2fthk4womyrn" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Walk_Sword_Defence0_2.png" id="8_xv4gm"]
-[ext_resource type="Texture2D" uid="uid://dre07rch54uki" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Walk_Sword_Defence0_3.png" id="9_axxmg"]
+[ext_resource type="Texture2D" uid="uid://k7nxdidm8gam" path="res://Assets/Images/Tiles/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Idle_Sword_Defence0_0.png" id="2_f81bg"]
+[ext_resource type="Texture2D" uid="uid://dsscmscqb4pqt" path="res://Assets/Images/Tiles/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Idle_Sword_Defence0_1.png" id="3_bxj48"]
+[ext_resource type="Texture2D" uid="uid://b4y31neofalux" path="res://Assets/Images/Tiles/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Idle_Sword_Defence0_2.png" id="4_gef8o"]
+[ext_resource type="Texture2D" uid="uid://dvqrjegy7w6ao" path="res://Assets/Images/Tiles/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Idle_Sword_Defence0_3.png" id="5_4svjv"]
+[ext_resource type="Texture2D" uid="uid://ncp4qhpuwtw8" path="res://Assets/Images/Tiles/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Walk_Sword_Defence0_0.png" id="6_cxumo"]
+[ext_resource type="Texture2D" uid="uid://julpo32ggbsq" path="res://Assets/Images/Tiles/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Walk_Sword_Defence0_1.png" id="7_65cm0"]
+[ext_resource type="Texture2D" uid="uid://2fthk4womyrn" path="res://Assets/Images/Tiles/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Walk_Sword_Defence0_2.png" id="8_xv4gm"]
+[ext_resource type="Texture2D" uid="uid://dre07rch54uki" path="res://Assets/Images/Tiles/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Walk_Sword_Defence0_3.png" id="9_axxmg"]
 [ext_resource type="Texture2D" uid="uid://b2vsntm3y5q2h" path="res://Assets/Images/Utilities/2d_lights_and_shadows_neutral_point_light.webp" id="10_vdevu"]
 [ext_resource type="AudioStream" uid="uid://4n7g46urcjqm" path="res://Assets/Sounds/walking_player.ogg" id="11_ruofl"]
 [ext_resource type="Script" path="res://Components/FlipSprite/flip_sprite.gd" id="12_8nnif"]
@@ -19,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://chp3vaf3royc6" path="res://Assets/Sounds/switch_flash_light.wav" id="17_x2sei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smntn"]
-size = Vector2(10, 10)
+size = Vector2(51.0368, 25.9889)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5olov"]
 animations = [{
@@ -65,6 +65,7 @@ script = ExtResource("1_3i14y")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.1412, 75.2536)
 shape = SubResource("RectangleShape2D_smntn")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -74,12 +75,13 @@ zoom = Vector2(2, 2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_5olov")
-animation = &"Walk"
-frame_progress = 0.473952
+animation = &"Idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-5.96046e-08, 32.6663)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(1.5, 1.5)
+color = Color(0.554873, 0.289863, 0.0178944, 1)
+energy = 3.0
 shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("10_vdevu")
 texture_scale = 3.0
@@ -93,8 +95,8 @@ script = ExtResource("12_8nnif")
 
 [node name="FlashLight" type="PointLight2D" parent="."]
 position = Vector2(0, 27.4699)
-scale = Vector2(0.6, 0.6)
-energy = 5.0
+scale = Vector2(0.7, 0.7)
+energy = 7.0
 texture = ExtResource("13_ahxmx")
 texture_scale = 3.59
 script = ExtResource("13_fgcvi")

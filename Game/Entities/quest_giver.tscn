@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://cmsbb0sucusc1"]
 
 [ext_resource type="Script" path="res://Game/Entities/quest_giver.gd" id="1_2bdsl"]
-[ext_resource type="Texture2D" uid="uid://ckhy3l16r1yb1" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Scepter/Defence4/Player_Idle_Scepter_Defence4_0.png" id="2_0kiso"]
-[ext_resource type="Texture2D" uid="uid://deldfnfpiuu1f" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Scepter/Defence4/Player_Idle_Scepter_Defence4_1.png" id="3_wuek6"]
-[ext_resource type="Texture2D" uid="uid://ccqh5uh8ehml0" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Scepter/Defence4/Player_Idle_Scepter_Defence4_2.png" id="4_63pig"]
-[ext_resource type="Texture2D" uid="uid://buxuuisx3jgvj" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Scepter/Defence4/Player_Idle_Scepter_Defence4_3.png" id="5_7avwn"]
+[ext_resource type="Texture2D" uid="uid://y3naxlowclhy" path="res://Assets/Images/Tiles/Roguelike Dungeon/Sprites/Player/Sword/Defence4/Player_Idle_Sword_Defence4_0.png" id="2_eqme1"]
+[ext_resource type="Texture2D" uid="uid://jv3hii144u18" path="res://Assets/Images/Tiles/Roguelike Dungeon/Sprites/Player/Sword/Defence4/Player_Idle_Sword_Defence4_1.png" id="3_ckikj"]
+[ext_resource type="Texture2D" uid="uid://losjwq3bpckq" path="res://Assets/Images/Tiles/Roguelike Dungeon/Sprites/Player/Sword/Defence4/Player_Idle_Sword_Defence4_2.png" id="4_7lrq2"]
+[ext_resource type="Texture2D" uid="uid://067rqtl1cpdv" path="res://Assets/Images/Tiles/Roguelike Dungeon/Sprites/Player/Sword/Defence4/Player_Idle_Sword_Defence4_3.png" id="5_53r07"]
 [ext_resource type="Texture2D" uid="uid://b2vsntm3y5q2h" path="res://Assets/Images/Utilities/2d_lights_and_shadows_neutral_point_light.webp" id="6_0rykl"]
 [ext_resource type="Script" path="res://Components/CommonAnimationPlayer/common_animation_player.gd" id="7_bna0k"]
 
@@ -12,16 +12,16 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_0kiso")
+"texture": ExtResource("2_eqme1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_wuek6")
+"texture": ExtResource("3_ckikj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_63pig")
+"texture": ExtResource("4_7lrq2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_7avwn")
+"texture": ExtResource("5_53r07")
 }],
 "loop": true,
 "name": &"Idle",
@@ -29,7 +29,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0vgsh"]
-size = Vector2(58.9789, 66.3433)
+size = Vector2(28.5905, 12.4103)
 
 [node name="QuestGiver" type="CharacterBody2D"]
 script = ExtResource("1_2bdsl")
@@ -38,15 +38,16 @@ script = ExtResource("1_2bdsl")
 scale = Vector2(-0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_ga8jm")
 animation = &"Idle"
-frame_progress = 0.441009
+frame_progress = 0.11825
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-0.500565, 26.3487)
+energy = 0.5
 shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("6_0rykl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.96535, 18.0495)
+position = Vector2(-0.147599, 45.016)
 shape = SubResource("RectangleShape2D_0vgsh")
 
 [node name="CommonAnimationPlayer" type="Node" parent="."]

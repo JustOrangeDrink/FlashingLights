@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://sa8vi3i7kh"]
+[gd_scene load_steps=3 format=3 uid="uid://cxnis6tu5ka5w"]
 
 [ext_resource type="Script" path="res://Game/Entities/Weapons/flash_light.gd" id="1_idgm1"]
+[ext_resource type="Script" path="res://Game/Entities/Weapons/timer.gd" id="2_2fcsf"]
 
-[node name="PointLight2D" type="PointLight2D"]
+[node name="Node" type="Node"]
+
+[node name="FlashLight" type="PointLight2D" parent="."]
 script = ExtResource("1_idgm1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+script = ExtResource("2_2fcsf")
