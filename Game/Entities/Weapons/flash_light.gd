@@ -25,6 +25,7 @@ func shoot_flash():
 	is_shooting = true
 	var red
 	var blue
+	#TODO: Add change of color after each flash
 	timer += 1
 	if timer < 7:
 		visible = true
