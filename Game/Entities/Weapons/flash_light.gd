@@ -23,6 +23,8 @@ func shoot_stable():
 
 func shoot_flash():
 	is_shooting = true
+	var red
+	var blue
 	timer += 1
 	if timer < 7:
 		visible = true

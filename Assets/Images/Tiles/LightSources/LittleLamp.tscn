@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://vhxh6atg5d6y"]
+
+[ext_resource type="Texture2D" uid="uid://d21qau1nufti8" path="res://Assets/Images/Tiles/32x32_Steampunk_Lamps.png" id="1_tmg6a"]
+[ext_resource type="Texture2D" uid="uid://b2vsntm3y5q2h" path="res://Assets/Images/Utilities/2d_lights_and_shadows_neutral_point_light.webp" id="2_qm2ua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eh88y"]
+size = Vector2(11.5817, 12.027)
+
+[node name="StaticBody2D" type="StaticBody2D"]
+y_sort_enabled = true
+position = Vector2(18.4998, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.424931, 0.424931, 0.424931, 1)
+position = Vector2(594, 334.025)
+texture = ExtResource("1_tmg6a")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(594.427, 347.914)
+shape = SubResource("RectangleShape2D_eh88y")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(594.5, 340.863)
+color = Color(0.836378, 0.372503, 5.77569e-07, 1)
+energy = 7.0
+texture = ExtResource("2_qm2ua")
