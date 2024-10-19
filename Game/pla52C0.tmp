@@ -1,0 +1,109 @@
+[gd_scene load_steps=19 format=3 uid="uid://l6kgbrg6478"]
+
+[ext_resource type="Script" path="res://Game/player.gd" id="1_3i14y"]
+[ext_resource type="Texture2D" uid="uid://k7nxdidm8gam" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Idle_Sword_Defence0_0.png" id="2_f81bg"]
+[ext_resource type="Texture2D" uid="uid://dsscmscqb4pqt" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Idle_Sword_Defence0_1.png" id="3_bxj48"]
+[ext_resource type="Texture2D" uid="uid://b4y31neofalux" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Idle_Sword_Defence0_2.png" id="4_gef8o"]
+[ext_resource type="Texture2D" uid="uid://dvqrjegy7w6ao" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Idle_Sword_Defence0_3.png" id="5_4svjv"]
+[ext_resource type="Texture2D" uid="uid://ncp4qhpuwtw8" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Walk_Sword_Defence0_0.png" id="6_cxumo"]
+[ext_resource type="Texture2D" uid="uid://julpo32ggbsq" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Walk_Sword_Defence0_1.png" id="7_65cm0"]
+[ext_resource type="Texture2D" uid="uid://2fthk4womyrn" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Walk_Sword_Defence0_2.png" id="8_xv4gm"]
+[ext_resource type="Texture2D" uid="uid://dre07rch54uki" path="res://Assets/Images/Tileset/Roguelike Dungeon/Sprites/Player/Sword/Defence0/Player_Walk_Sword_Defence0_3.png" id="9_axxmg"]
+[ext_resource type="Texture2D" uid="uid://b2vsntm3y5q2h" path="res://Assets/Images/Utilities/2d_lights_and_shadows_neutral_point_light.webp" id="10_vdevu"]
+[ext_resource type="AudioStream" uid="uid://4n7g46urcjqm" path="res://Assets/Sounds/walking_player.ogg" id="11_ruofl"]
+[ext_resource type="Script" path="res://Components/FlipSprite/flip_sprite.gd" id="12_8nnif"]
+[ext_resource type="Texture2D" uid="uid://cm3re338etusx" path="res://Assets/Images/Utilities/flash_light.png" id="13_ahxmx"]
+[ext_resource type="Script" path="res://Game/Entities/Weapons/flash_light.gd" id="13_fgcvi"]
+[ext_resource type="Script" path="res://Components/WalkingSound/walking_sound.gd" id="15_xikr5"]
+[ext_resource type="Script" path="res://Components/CommonAnimationPlayer/common_animation_player.gd" id="16_yb813"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smntn"]
+size = Vector2(10, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5olov"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f81bg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bxj48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gef8o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4svjv")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_cxumo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_65cm0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xv4gm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_axxmg")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(0, -30.7244)
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_3i14y")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_smntn")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Camera2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5olov")
+animation = &"Walk"
+frame_progress = 0.473952
+
+[node name="PlayerLight" type="PointLight2D" parent="."]
+position = Vector2(-5.96046e-08, 32.6663)
+scale = Vector2(0.5, 0.5)
+shadow_color = Color(0, 0, 0, 1)
+texture = ExtResource("10_vdevu")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="FlipSprite" type="Sprite2D" parent="."]
+script = ExtResource("12_8nnif")
+
+[node name="FlashLight" type="PointLight2D" parent="."]
+position = Vector2(0, 27.4699)
+scale = Vector2(0.6, 0.6)
+energy = 5.0
+texture = ExtResource("13_ahxmx")
+texture_scale = 3.59
+script = ExtResource("13_fgcvi")
+
+[node name="WalkingSound" type="AudioStreamPlayer2D" parent="." node_paths=PackedStringArray("walk_timer")]
+stream = ExtResource("11_ruofl")
+volume_db = -15.0
+max_distance = 360.0
+script = ExtResource("15_xikr5")
+walk_timer = NodePath("../Timer")
+wait_time = 0.4
+
+[node name="CommonAnimationPlayer" type="Node" parent="."]
+script = ExtResource("16_yb813")

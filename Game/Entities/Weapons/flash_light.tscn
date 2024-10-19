@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://sa8vi3i7kh"]
+
+[ext_resource type="Script" path="res://Game/Entities/Weapons/flash_light.gd" id="1_idgm1"]
+
+[node name="PointLight2D" type="PointLight2D"]
+script = ExtResource("1_idgm1")

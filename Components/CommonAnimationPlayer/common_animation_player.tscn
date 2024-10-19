@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt2ctgnuxk60p"]
+
+[ext_resource type="Script" path="res://Components/CommonAnimationPlayer/common_animation_player.gd" id="1_2nm4h"]
+
+[node name="CommonAnimationPlayer" type="Node"]
+script = ExtResource("1_2nm4h")

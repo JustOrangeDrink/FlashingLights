@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c37tk8y82lso"]
+
+[ext_resource type="Script" path="res://Components/FlipSprite/flip_sprite.gd" id="1_gmusj"]
+
+[node name="DirectionalFlipper" type="Node"]
+script = ExtResource("1_gmusj")
