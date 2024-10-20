@@ -79,12 +79,10 @@ animation = &"Idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-5.96046e-08, 32.6663)
-scale = Vector2(1.5, 1.5)
 color = Color(0.554873, 0.289863, 0.0178944, 1)
-energy = 3.0
 shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("10_vdevu")
-texture_scale = 3.0
+texture_scale = 5.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.4
@@ -96,7 +94,8 @@ script = ExtResource("12_8nnif")
 [node name="FlashLight" type="PointLight2D" parent="."]
 position = Vector2(0, 27.4699)
 scale = Vector2(0.7, 0.7)
-energy = 7.0
+color = Color(0, 0.678431, 0.00784314, 1)
+energy = 4.0
 texture = ExtResource("13_ahxmx")
 texture_scale = 3.59
 script = ExtResource("13_fgcvi")
