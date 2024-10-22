@@ -29,25 +29,26 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0vgsh"]
-size = Vector2(28.5905, 12.4103)
+size = Vector2(28.5905, 11.2052)
 
 [node name="QuestGiver" type="CharacterBody2D"]
 script = ExtResource("1_2bdsl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -48)
 scale = Vector2(-0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_ga8jm")
 animation = &"Idle"
 frame_progress = 0.11825
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-0.500565, 26.3487)
+position = Vector2(-3, -34)
 energy = 0.5
 shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("6_0rykl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.147599, 45.016)
+position = Vector2(0, -5.39742)
 shape = SubResource("RectangleShape2D_0vgsh")
 
 [node name="CommonAnimationPlayer" type="Node" parent="."]

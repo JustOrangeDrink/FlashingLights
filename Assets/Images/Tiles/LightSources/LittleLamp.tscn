@@ -4,25 +4,24 @@
 [ext_resource type="Texture2D" uid="uid://b2vsntm3y5q2h" path="res://Assets/Images/Utilities/2d_lights_and_shadows_neutral_point_light.webp" id="2_qm2ua"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eh88y"]
-size = Vector2(11.5817, 12.027)
+size = Vector2(11.5817, 8.0135)
 
 [node name="StaticBody2D" type="StaticBody2D"]
-y_sort_enabled = true
-position = Vector2(18.4998, 0)
+position = Vector2(0, 9)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.424931, 0.424931, 0.424931, 1)
-position = Vector2(594, 334.025)
+modulate = Color(0.513233, 0.513233, 0.513233, 1)
 texture = ExtResource("1_tmg6a")
+offset = Vector2(0, -6.875)
 region_enabled = true
 region_rect = Rect2(0, 0, 32, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(594.427, 347.914)
+position = Vector2(0, 3.00675)
 shape = SubResource("RectangleShape2D_eh88y")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(594.5, 340.863)
-color = Color(0.820255, 0.364771, 9.62615e-07, 1)
+position = Vector2(0.525559, 0.0262775)
+color = Color(0.734823, 0.437992, 0.0716613, 1)
 energy = 2.0
 texture = ExtResource("2_qm2ua")
