@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var _walk = $WalkingSound
 @onready var _flash_light = $FlashLight
 @onready var _common_animation_player = $CommonAnimationPlayer
+@onready var NO_INPUT: bool
 
 @export var speed: int = 50
 
@@ -14,7 +15,10 @@ func _ready() -> void:
 	_camera.limit_top = 0
 	_camera.limit_bottom = get_viewport().size.y - 129
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(_delta: float):
+	if NO_INPUT:
+		_animated_sprite.pause()
+		return 
 	get_input()
 	_flash_light.control_shooting(self, _animated_sprite)
 	move_and_slide()

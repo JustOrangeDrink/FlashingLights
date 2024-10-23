@@ -19,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://chp3vaf3royc6" path="res://Assets/Sounds/switch_flash_light.wav" id="17_x2sei"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smntn"]
-size = Vector2(51.0368, 23.3333)
+size = Vector2(51.0368, 71.6666)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5olov"]
 animations = [{
@@ -59,13 +59,13 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(0, -30.7244)
+position = Vector2(-1, -30)
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_3i14y")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -10.9187)
+position = Vector2(0, -35.0854)
 shape = SubResource("RectangleShape2D_smntn")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -76,15 +76,14 @@ zoom = Vector2(2, 2)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4.252)
 sprite_frames = SubResource("SpriteFrames_5olov")
-animation = &"Idle"
+animation = &"Walk"
 offset = Vector2(0, -76.415)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-5.96046e-08, 32.6663)
-color = Color(0.554873, 0.289863, 0.0178944, 1)
+position = Vector2(3.33333, -53.3333)
 shadow_color = Color(0, 0, 0, 1)
 texture = ExtResource("10_vdevu")
-texture_scale = 5.0
+texture_scale = 2.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.4
@@ -94,13 +93,19 @@ one_shot = true
 script = ExtResource("12_8nnif")
 
 [node name="FlashLight" type="PointLight2D" parent="."]
-position = Vector2(0, 27.4699)
-scale = Vector2(0.7, 0.7)
-color = Color(0, 0.678431, 0.00784314, 1)
+show_behind_parent = true
+position = Vector2(4.018, -58.495)
+scale = Vector2(1, 0.8)
 energy = 4.0
+shadow_color = Color(0, 0, 0.0509804, 1)
 texture = ExtResource("13_ahxmx")
-texture_scale = 3.59
 script = ExtResource("13_fgcvi")
+
+[node name="Area2D" type="Area2D" parent="FlashLight"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FlashLight/Area2D"]
+scale = Vector2(1.1, 2)
+polygon = PackedVector2Array(-6.84667, 18.2833, 387.715, -124.192, 626.487, -115.05, 811.957, -57.525, 811.957, 59.1416, 626.487, 118.283, 387.715, 125.808)
 
 [node name="WalkingSound" type="AudioStreamPlayer2D" parent="." node_paths=PackedStringArray("walk_timer")]
 stream = ExtResource("11_ruofl")

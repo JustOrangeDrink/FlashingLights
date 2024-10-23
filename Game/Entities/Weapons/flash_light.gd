@@ -9,14 +9,16 @@ class_name FlashLight
 func _ready() -> void:
 	visible = false
 
-func control_shooting(entity: CharacterBody2D, sprite: Node2D):
+func control_shooting(entity: CharacterBody2D, sprite: AnimatedSprite2D):
 	if is_shooting:
 		_directional_flipper.flip_on_mouse(sprite)
-		if is_scanning:
-			entity.velocity *= 0.5
+		entity.velocity *= 0.5
+		if !is_scanning:
+			$Area2D/CollisionPolygon2D.disabled = false
 	else:
 		_directional_flipper.flip_on_movement(sprite, entity.velocity)
 		visible = false
+		$Area2D/CollisionPolygon2D.disabled = true
 
 func play_switch_sound(switch_sound: AudioStreamPlayer2D):
 	if Input.is_action_just_pressed("Left Mouse Button") or Input.is_action_just_pressed("Right Mouse Button"):
@@ -27,27 +29,28 @@ func play_switch_sound(switch_sound: AudioStreamPlayer2D):
 		switch_sound.play()
 
 func shoot_stable():
+	look_at(get_global_mouse_position())
 	is_shooting = true
-	scale = Vector2(0.7, 0.7)
+	scale = Vector2(1, 0.8)
 	visible = true
 	color = "FFFFFF"
-	energy = 4
-	look_at(get_global_mouse_position())
 
 func scan():
+	#TODO: Change scan so it is used to take a glance through the darkness
 	is_shooting = true
 	is_scanning = true
-	scale.y = 1.5
+	scale = Vector2(3, 5)
 	visible = true
 	color = "00ad02"
-	energy = 3
 	
 	timer += 1
 	if timer == 1:
 		look_at(get_global_mouse_position())
 	if timer < 40:
-		visible = true
+		$Area2D/CollisionPolygon2D.disabled = false
 	if timer > 40:
 		visible = false
+		$Area2D/CollisionPolygon2D.disabled = true
+		
 	if timer == 50:
 		timer = 0

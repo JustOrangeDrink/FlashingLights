@@ -1,5 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://2q6xw6slt7qj"]
+[gd_scene load_steps=12 format=4 uid="uid://2q6xw6slt7qj"]
 
+[ext_resource type="Script" path="res://Game/Lobby/lobby.gd" id="1_fggrn"]
 [ext_resource type="PackedScene" uid="uid://l6kgbrg6478" path="res://Game/Player/player.tscn" id="1_fipdd"]
 [ext_resource type="PackedScene" uid="uid://cmsbb0sucusc1" path="res://Game/Entities/quest_giver.tscn" id="2_8v513"]
 [ext_resource type="PackedScene" uid="uid://vhxh6atg5d6y" path="res://Assets/Images/Tiles/LightSources/LittleLamp.tscn" id="3_d5gda"]
@@ -1044,8 +1045,9 @@ shader_parameter/grain_size = 0.53
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_6ycjs"]
 
-[node name="Game" type="Node2D"]
+[node name="Lobby" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_fggrn")
 
 [node name="Player" parent="." instance=ExtResource("1_fipdd")]
 position = Vector2(592, 313)
@@ -1071,6 +1073,16 @@ offset_bottom = 638.0
 texture = SubResource("CanvasTexture_6ycjs")
 metadata/_edit_use_anchors_ = true
 
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+transparent_bg = true
+title = ""
+initial_position = 1
+size = Vector2i(206, 100)
+unresizable = true
+always_on_top = true
+ok_button_text = "Start Attempt"
+dialog_text = "Harness the darkness?"
+
 [node name="LampPost" parent="." instance=ExtResource("6_76p6j")]
 position = Vector2(568, 208)
 
@@ -1088,3 +1100,6 @@ position = Vector2(568, 17)
 
 [node name="LampPost6" parent="." instance=ExtResource("6_76p6j")]
 position = Vector2(664, 17)
+
+[connection signal="canceled" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_canceled"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]

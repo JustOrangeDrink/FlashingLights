@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Node
 class_name FlipSprite
 
 var is_flipped: bool = false
